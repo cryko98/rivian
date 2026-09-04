@@ -279,6 +279,21 @@ section{position:relative;z-index:1}
 @media(max-width:900px){.ansem{grid-template-columns:1fr}.ansem .l{padding:38px 26px}
   .ansem .r{border-left:0;border-top:1px solid var(--line);padding:26px}}
 
+/* fee routing */
+.route{margin-top:28px;border:1px solid rgba(207,242,21,.32);border-radius:var(--rad);
+  background:linear-gradient(120deg,rgba(207,242,21,.07),rgba(5,6,10,0) 62%),#0a0e15;padding:22px 24px}
+.route-flow{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0 16px}
+.route-flow .node{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#b9c4d3;
+  border:1px solid var(--line-2);background:var(--panel-2);border-radius:8px;padding:8px 13px;white-space:nowrap}
+.route-flow .node.hot{color:#141a00;background:var(--green);border-color:var(--green);font-weight:600}
+.route-flow svg{width:17px;height:17px;color:var(--green);flex:none}
+.route p{margin:0;color:#98a4b6;font-size:13px}
+.route p b{color:var(--txt);font-weight:600}
+@media(max-width:620px){
+  .route-flow{flex-direction:column;align-items:flex-start;gap:8px}
+  .route-flow svg{transform:rotate(90deg);margin-left:16px}
+}
+
 /* faq */
 .faq{border-top:1px solid var(--line)}
 .q{border-bottom:1px solid var(--line)}
@@ -477,6 +492,7 @@ footer{border-top:1px solid var(--line);background:#070a10;padding:56px 0 34px;p
         <div><dt>Quote asset</dt><dd>RIVN Stock Token</dd></div>
         <div><dt>Ownership</dt><dd>Renounced</dd></div>
         <div><dt>Team allocation</dt><dd>0%</dd></div>
+        <div><dt>Creator rewards</dt><dd>Routed to Ansem</dd></div>
         <div><dt>Tax</dt><dd>0 / 0</dd></div>
       </dl>
     </div>
@@ -578,6 +594,18 @@ footer{border-top:1px solid var(--line);background:#070a10;padding:56px 0 34px;p
       <h3 style="margin-top:14px">ANSEM —<br><em>DON'T BE SIDELINED.</em></h3>
       <p>You started the CTO and then you left. Nobody's holding the exit against you — the stock faded after you too, the way it fades after everyone. That's the whole joke.
       But the truck never left the road, it's cheaper now than when you called it, and the seat you walked away from is still open. Come back or don't. We're driving either way.</p>
+      <div class="route">
+        <span class="mono-label" style="color:var(--green)">Creator rewards · routed on autopilot</span>
+        <div class="route-flow">
+          <span class="node">Every trade</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+          <span class="node">Creator fee</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
+          <span class="node hot">Ansem's wallet</span>
+        </div>
+        <p>The creator reward address was pointed at <b>his wallet, not ours</b>, at launch. Every buy and every sell on this pair pays him, whether he ever looks at this page or not. He didn't ask for it and it doesn't mean he's involved — it's something we did to him, not with him. Call it a refund for the bottom.</p>
+      </div>
+
       <div class="hero-cta" style="margin-top:26px">
         <a class="btn btn-go" id="x-ansem" href="#" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.65l-5.22-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.82l4.71 6.23 5.46-6.23zm-1.16 17.52h1.84L7.02 4.13H5.05l12.03 15.64z"/></svg>
@@ -648,10 +676,16 @@ footer{border-top:1px solid var(--line);background:#070a10;padding:56px 0 34px;p
       <div class="a"><p>No. $RIVN is an independent community project with no affiliation, endorsement, or relationship with Rivian Automotive, Robinhood Markets, or any of their products. Names and tickers appear here as cultural reference, not as a claim of partnership.</p></div>
     </div>
     <div class="q">
+      <button type="button">Where do the creator rewards go?
+        <svg class="pm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="a"><p>To Ansem. The creator reward address on this launch points at his wallet instead of the deployer's, so the fee share every trade throws off lands with him automatically — no claim step, no announcement, nothing for anyone here to collect. It is a one-way arrangement: he never agreed to it and gets paid regardless.</p></div>
+    </div>
+    <div class="q">
       <button type="button">Is Ansem involved?
         <svg class="pm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
       </button>
-      <div class="a"><p>Not in any official capacity. He called it, told everyone to CTO the trucks, and sold the bottom. We took the second part literally. The invitation to come back is open, but the fleet doesn't wait on anyone.</p></div>
+      <div class="a"><p>Not in any official capacity, and nothing here should be read as his endorsement. He called it, told everyone to CTO the trucks, and sold the bottom; we took the second part literally and pointed the creator rewards at his wallet. That's something done to him, not with him. The invitation to come back is open, but the fleet doesn't wait on anyone.</p></div>
     </div>
     <div class="q">
       <button type="button">Will this make me money?
@@ -737,6 +771,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     {c:'',   h:'',  t:'INVESTORS HATE', s:'THIS COMPANY'},
     {c:'dn', h:dn, t:'ANSEM', s:'STARTED THE CTO, LEFT'},
     {c:'',   h:'',  t:'WSB NEVER TOOK THE TRUCK', s:'SO WE DID'},
+    {c:'up', h:up, t:'CREATOR REWARDS', s:'ROUTED TO ANSEM'},
     {c:'up', h:up, t:'$RIVN ON-CHAIN', s:"STILL CHEAP"}
   ];
   var html = items.map(function(i){
