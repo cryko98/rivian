@@ -286,6 +286,10 @@ section{position:relative;z-index:1}
 .route-flow .node{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#b9c4d3;
   border:1px solid var(--line-2);background:var(--panel-2);border-radius:8px;padding:8px 13px;white-space:nowrap}
 .route-flow .node.hot{color:#141a00;background:var(--green);border-color:var(--green);font-weight:600}
+.route-flow .node.next{color:var(--green);background:transparent;border:1px dashed rgba(207,242,21,.6);font-weight:600}
+.route-tag{display:inline-flex;align-items:center;gap:7px;font-size:10.5px;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--gold);border:1px solid rgba(242,181,58,.38);background:rgba(242,181,58,.09);
+  border-radius:6px;padding:4px 9px;margin-bottom:14px}
 .route-flow svg{width:17px;height:17px;color:var(--green);flex:none}
 .route p{margin:0;color:#98a4b6;font-size:13px}
 .route p b{color:var(--txt);font-weight:600}
@@ -492,7 +496,7 @@ footer{border-top:1px solid var(--line);background:#070a10;padding:56px 0 34px;p
         <div><dt>Quote asset</dt><dd>RIVN Stock Token</dd></div>
         <div><dt>Ownership</dt><dd>Renounced</dd></div>
         <div><dt>Team allocation</dt><dd>0%</dd></div>
-        <div><dt>Creator rewards</dt><dd>Routed to Ansem</dd></div>
+        <div><dt>Creator rewards</dt><dd>To Ansem — planned</dd></div>
         <div><dt>Tax</dt><dd>0 / 0</dd></div>
       </dl>
     </div>
@@ -595,15 +599,16 @@ footer{border-top:1px solid var(--line);background:#070a10;padding:56px 0 34px;p
       <p>You started the CTO and then you left. Nobody's holding the exit against you — the stock faded after you too, the way it fades after everyone. That's the whole joke.
       But the truck never left the road, it's cheaper now than when you called it, and the seat you walked away from is still open. Come back or don't. We're driving either way.</p>
       <div class="route">
-        <span class="mono-label" style="color:var(--green)">Creator rewards · routed on autopilot</span>
+        <span class="mono-label" style="color:var(--green)">Creator rewards · planned redirect</span>
         <div class="route-flow">
           <span class="node">Every trade</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
           <span class="node">Creator fee</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
-          <span class="node hot">Ansem's wallet</span>
+          <span class="node next">Ansem's wallet</span>
         </div>
-        <p>The creator reward address was pointed at <b>his wallet, not ours</b>, at launch. Every buy and every sell on this pair pays him, whether he ever looks at this page or not. He didn't ask for it and it doesn't mean he's involved — it's something we did to him, not with him. Call it a refund for the bottom.</p>
+        <span class="route-tag">Not live yet</span>
+        <p>To be clear about the timing: this did <b>not</b> happen at launch. The creator reward address still points where it was deployed. The plan is to switch it over to <b>his wallet, not ours</b> — and once that switch is made, every buy and every sell on this pair pays him, whether he ever looks at this page or not. He hasn't asked for it and it won't mean he's involved; it's something we'd be doing to him, not with him. Call it a refund for the bottom, once it lands.</p>
       </div>
 
       <div class="hero-cta" style="margin-top:26px">
@@ -679,13 +684,13 @@ footer{border-top:1px solid var(--line);background:#070a10;padding:56px 0 34px;p
       <button type="button">Where do the creator rewards go?
         <svg class="pm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
       </button>
-      <div class="a"><p>To Ansem. The creator reward address on this launch points at his wallet instead of the deployer's, so the fee share every trade throws off lands with him automatically — no claim step, no announcement, nothing for anyone here to collect. It is a one-way arrangement: he never agreed to it and gets paid regardless.</p></div>
+      <div class="a"><p>To Ansem — but not yet. Right now the creator reward address is still the one set at deployment; the redirect to his wallet is planned, not done, and this page will be wrong the moment that stops being true, so check the on-chain config rather than taking a website's word for it. Once it is switched, the fee share every trade throws off lands with him automatically: no claim step, no announcement, nothing for anyone here to collect. It's a one-way arrangement either way — he never agreed to it and would get paid regardless.</p></div>
     </div>
     <div class="q">
       <button type="button">Is Ansem involved?
         <svg class="pm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
       </button>
-      <div class="a"><p>Not in any official capacity, and nothing here should be read as his endorsement. He called it, told everyone to CTO the trucks, and sold the bottom; we took the second part literally and pointed the creator rewards at his wallet. That's something done to him, not with him. The invitation to come back is open, but the fleet doesn't wait on anyone.</p></div>
+      <div class="a"><p>Not in any official capacity, and nothing here should be read as his endorsement. He called it, told everyone to CTO the trucks, and sold the bottom; we took the second part literally, and the plan is to redirect the creator rewards to his wallet. That's something done to him, not with him. The invitation to come back is open, but the fleet doesn't wait on anyone.</p></div>
     </div>
     <div class="q">
       <button type="button">Will this make me money?
@@ -771,7 +776,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     {c:'',   h:'',  t:'INVESTORS HATE', s:'THIS COMPANY'},
     {c:'dn', h:dn, t:'ANSEM', s:'STARTED THE CTO, LEFT'},
     {c:'',   h:'',  t:'WSB NEVER TOOK THE TRUCK', s:'SO WE DID'},
-    {c:'up', h:up, t:'CREATOR REWARDS', s:'ROUTED TO ANSEM'},
+    {c:'', h:'', t:'CREATOR REWARDS', s:'HEADED TO ANSEM'},
     {c:'up', h:up, t:'$RIVN ON-CHAIN', s:"STILL CHEAP"}
   ];
   var html = items.map(function(i){
