@@ -15,12 +15,14 @@ Open `index.html` and edit the `CONFIG` block near the bottom of the file:
 
 ```js
 var CONFIG = {
-  X_URL: "#",                                  // paste the X / Twitter profile URL
-  CONTRACT: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" // paste the contract address
+  X_URL:        "https://x.com/rivianctorh",
+  CONTRACT:     "0x6f2eaa...",  // token contract
+  ANSEM_WALLET: "0xB2b7E6...",  // creator-reward + 11.15% supply recipient
+  EXPLORER:     "https://robinhoodchain.blockscout.com"
 };
 ```
 
-Both the hero contract box (with copy-to-clipboard) and every X button on the page
+Both the hero contract box, the Ansem proof block (address, copy button, explorer link) and every X button on the page
 read from this one place — nothing else needs to change.
 
 ## Files

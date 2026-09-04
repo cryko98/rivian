@@ -287,6 +287,22 @@ section{position:relative;z-index:1}
   border:1px solid var(--line-2);background:var(--panel-2);border-radius:8px;padding:8px 13px;white-space:nowrap}
 .route-flow .node.hot{color:#141a00;background:var(--green);border-color:var(--green);font-weight:600}
 .route-flow .node.next{color:var(--green);background:transparent;border:1px dashed rgba(207,242,21,.6);font-weight:600}
+.receipts{margin:18px 0 0;border-top:1px solid var(--line-2)}
+.rc{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center;
+  padding:11px 0;border-bottom:1px solid var(--line-2)}
+.rc-k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.rc-v{font-size:12.5px;color:var(--txt);text-align:right}
+.rc-s{font-size:10px;font-weight:600;letter-spacing:.14em;padding:3px 8px;border-radius:5px;
+  color:var(--green);border:1px solid rgba(207,242,21,.4);background:rgba(207,242,21,.09)}
+@media(max-width:620px){.rc{grid-template-columns:1fr}
+  .rc-v{text-align:left}
+  .rc-s{justify-self:start}}
+.proof{margin-top:18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  border:1px solid var(--line-2);border-radius:10px;background:#0a0e15;padding:12px 14px}
+.proof .col{min-width:0;margin-right:auto}
+.proof .k{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+.proof .addr{font-size:12.5px;color:var(--txt);word-break:break-all;line-height:1.35}
+.proof .btn{height:34px;padding:0 12px;font-size:11px}
 .route-tag{display:inline-flex;align-items:center;gap:7px;font-size:10.5px;font-weight:600;letter-spacing:.18em;
   text-transform:uppercase;color:var(--gold);border:1px solid rgba(242,181,58,.38);background:rgba(242,181,58,.09);
   border-radius:6px;padding:4px 9px;margin-bottom:14px}
@@ -496,7 +512,8 @@ footer{border-top:1px solid var(--line);background:#070a10;padding:56px 0 34px;p
         <div><dt>Quote asset</dt><dd>RIVN Stock Token</dd></div>
         <div><dt>Ownership</dt><dd>Renounced</dd></div>
         <div><dt>Team allocation</dt><dd>0%</dd></div>
-        <div><dt>Creator rewards</dt><dd>To Ansem — planned</dd></div>
+        <div><dt>Creator rewards</dt><dd>Routed to Ansem</dd></div>
+        <div><dt>Sent to Ansem</dt><dd>11.15% of supply</dd></div>
         <div><dt>Tax</dt><dd>0 / 0</dd></div>
       </dl>
     </div>
@@ -599,16 +616,45 @@ footer{border-top:1px solid var(--line);background:#070a10;padding:56px 0 34px;p
       <p>You started the CTO and then you left. Nobody's holding the exit against you — the stock faded after you too, the way it fades after everyone. That's the whole joke.
       But the truck never left the road, it's cheaper now than when you called it, and the seat you walked away from is still open. Come back or don't. We're driving either way.</p>
       <div class="route">
-        <span class="mono-label" style="color:var(--green)">Creator rewards · planned redirect</span>
+        <span class="mono-label" style="color:var(--green)">Ansem's cut · live on-chain</span>
         <div class="route-flow">
           <span class="node">Every trade</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
           <span class="node">Creator fee</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
-          <span class="node next">Ansem's wallet</span>
+          <span class="node hot">Ansem's wallet</span>
         </div>
-        <span class="route-tag">Not live yet</span>
-        <p>To be clear about the timing: this did <b>not</b> happen at launch. The creator reward address still points where it was deployed. The plan is to switch it over to <b>his wallet, not ours</b> — and once that switch is made, every buy and every sell on this pair pays him, whether he ever looks at this page or not. He hasn't asked for it and it won't mean he's involved; it's something we'd be doing to him, not with him. Call it a refund for the bottom, once it lands.</p>
+        <p>The creator reward address now points at <b>his wallet, not ours</b> — every buy and every sell on this pair pays him, whether he ever looks at this page or not. On top of that we sent <b>11.15% of the supply</b> to the same address. He didn't ask for either one and neither means he's involved: it's something done to him, not with him. Call it a refund for the bottom.</p>
+
+        <div class="receipts">
+          <div class="rc">
+            <span class="rc-k">Creator rewards</span>
+            <span class="rc-v">Redirected to his wallet</span>
+            <span class="rc-s">ROUTED</span>
+          </div>
+          <div class="rc">
+            <span class="rc-k">Supply sent</span>
+            <span class="rc-v">111,549,980 $RIVN · 11.15%</span>
+            <span class="rc-s">SENT</span>
+          </div>
+        </div>
+
+        <div class="proof">
+          <div class="col">
+            <div class="k">Ansem's wallet · verify it yourself</div>
+            <div class="addr" id="ansem-addr">0xB2b7E6563c2EBa9113979AA04aD1b77313701a8c</div>
+          </div>
+          <button class="copy" id="copy-wallet" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+            <span>Copy</span>
+          </button>
+          <a class="btn" id="explorer-link" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-8.5 8.5"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+            <span>Explorer</span>
+          </a>
+        </div>
+
+        <p style="margin-top:14px;font-size:12px;color:#5c6879">That 11.15% sits in a wallet nobody here controls. He can sell all of it, any time, without telling anyone — he has form. Price it in.</p>
       </div>
 
       <div class="hero-cta" style="margin-top:26px">
@@ -684,13 +730,13 @@ footer{border-top:1px solid var(--line);background:#070a10;padding:56px 0 34px;p
       <button type="button">Where do the creator rewards go?
         <svg class="pm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
       </button>
-      <div class="a"><p>To Ansem — but not yet. Right now the creator reward address is still the one set at deployment; the redirect to his wallet is planned, not done, and this page will be wrong the moment that stops being true, so check the on-chain config rather than taking a website's word for it. Once it is switched, the fee share every trade throws off lands with him automatically: no claim step, no announcement, nothing for anyone here to collect. It's a one-way arrangement either way — he never agreed to it and would get paid regardless.</p></div>
+      <div class="a"><p>To Ansem. The creator reward address points at his wallet instead of the deployer's, so the fee share every trade throws off lands with him automatically — no claim step, no announcement, nothing for anyone here to collect. We also sent him 111,549,980 $RIVN, 11.15% of supply, to the same address. Both are visible on the explorer and you should go look rather than take a website's word for it. It's a one-way arrangement: he never agreed to any of it and gets paid regardless — and by the same token, that 11.15% is his to sell whenever he wants.</p></div>
     </div>
     <div class="q">
       <button type="button">Is Ansem involved?
         <svg class="pm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
       </button>
-      <div class="a"><p>Not in any official capacity, and nothing here should be read as his endorsement. He called it, told everyone to CTO the trucks, and sold the bottom; we took the second part literally, and the plan is to redirect the creator rewards to his wallet. That's something done to him, not with him. The invitation to come back is open, but the fleet doesn't wait on anyone.</p></div>
+      <div class="a"><p>Not in any official capacity, and nothing here should be read as his endorsement. He called it, told everyone to CTO the trucks, and sold the bottom; we took the second part literally, redirected the creator rewards to his wallet and sent him 11.15% of the supply. That's something done to him, not with him. The invitation to come back is open, but the fleet doesn't wait on anyone.</p></div>
     </div>
     <div class="q">
       <button type="button">Will this make me money?
@@ -732,34 +778,44 @@ footer{border-top:1px solid var(--line);background:#070a10;padding:56px 0 34px;p
 /* ---- edit these two lines when the links go live ---- */
 var CONFIG = {
   X_URL: "https://x.com/rivianctorh",
-  CONTRACT: "0x6f2eaa398b4212ee5435072e6b3e8a17c5da991a"
+  CONTRACT: "0x6f2eaa398b4212ee5435072e6b3e8a17c5da991a",
+  ANSEM_WALLET: "0xB2b7E6563c2EBa9113979AA04aD1b77313701a8c",
+  EXPLORER: "https://robinhoodchain.blockscout.com"
 };
 
 document.getElementById('ca-text').textContent = CONFIG.CONTRACT;
+document.getElementById('ansem-addr').textContent = CONFIG.ANSEM_WALLET;
+document.getElementById('explorer-link').href = CONFIG.EXPLORER + '/address/' + CONFIG.ANSEM_WALLET;
 ['x-nav','x-hero','x-ansem','x-foot'].forEach(function(id){
   var el = document.getElementById(id);
   if (el && CONFIG.X_URL !== "#") el.href = CONFIG.X_URL;
 });
 document.getElementById('yr').textContent = new Date().getFullYear();
 
-/* copy contract */
+/* copy buttons */
 (function(){
-  var btn = document.getElementById('copy-btn'), label = btn.querySelector('span');
-  btn.addEventListener('click', function(){
-    var done = function(){
-      btn.classList.add('ok'); label.textContent = 'Copied';
-      setTimeout(function(){ btn.classList.remove('ok'); label.textContent = 'Copy'; }, 1600);
-    };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(CONFIG.CONTRACT).then(done).catch(fallback);
-    } else { fallback(); }
-    function fallback(){
-      var ta = document.createElement('textarea');
-      ta.value = CONFIG.CONTRACT; ta.style.position='fixed'; ta.style.opacity='0';
-      document.body.appendChild(ta); ta.select();
-      try { document.execCommand('copy'); done(); } catch(e){}
-      document.body.removeChild(ta);
-    }
+  document.getElementById('copy-btn').dataset.copy = CONFIG.CONTRACT;
+  document.getElementById('copy-wallet').dataset.copy = CONFIG.ANSEM_WALLET;
+
+  document.querySelectorAll('[data-copy]').forEach(function(btn){
+    var label = btn.querySelector('span');
+    btn.addEventListener('click', function(){
+      var text = btn.dataset.copy;
+      var done = function(){
+        btn.classList.add('ok'); label.textContent = 'Copied';
+        setTimeout(function(){ btn.classList.remove('ok'); label.textContent = 'Copy'; }, 1600);
+      };
+      var fallback = function(){
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); done(); } catch(e){}
+        document.body.removeChild(ta);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(fallback);
+      } else { fallback(); }
+    });
   });
 })();
 
@@ -776,7 +832,8 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     {c:'',   h:'',  t:'INVESTORS HATE', s:'THIS COMPANY'},
     {c:'dn', h:dn, t:'ANSEM', s:'STARTED THE CTO, LEFT'},
     {c:'',   h:'',  t:'WSB NEVER TOOK THE TRUCK', s:'SO WE DID'},
-    {c:'', h:'', t:'CREATOR REWARDS', s:'HEADED TO ANSEM'},
+    {c:'up', h:up, t:'CREATOR REWARDS', s:'ROUTED TO ANSEM'},
+    {c:'up', h:up, t:'11.15% OF SUPPLY', s:'SENT TO ANSEM'},
     {c:'up', h:up, t:'$RIVN ON-CHAIN', s:"STILL CHEAP"}
   ];
   var html = items.map(function(i){
