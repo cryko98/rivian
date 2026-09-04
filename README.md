@@ -1,6 +1,6 @@
-# $RIVIAN — We Kept The Truck
+# RIVIAN — $RIVN on Robinhood Chain
 
-Community takeover landing page for **$RIVIAN** on Robinhood Chain.
+Community takeover landing page for **$RIVN** on Robinhood Chain — the memecoin that took the stock's ticker. Name: Rivian. Ticker: $RIVN.
 
 ## Stack
 
