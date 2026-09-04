@@ -217,20 +217,36 @@ section{position:relative;z-index:1}
 @media(max-width:820px){.pair{grid-template-columns:1fr;gap:0}
   .pair .link{height:70px}.pair .link::before{left:50%;top:0;bottom:0}}
 
+/* mechanics */
+.mech{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:var(--rad);
+  overflow:hidden;background:var(--panel);margin-top:26px}
+.mech>div{padding:28px 26px;border-right:1px solid var(--line)}
+.mech>div:last-child{border-right:0}
+.mech .mi{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.22em;color:var(--green)}
+.mech h4{margin:12px 0 10px;font-family:var(--disp);font-weight:700;font-size:18px;letter-spacing:-.01em;line-height:1.15}
+.mech p{margin:0;color:#98a4b6;font-size:13px}
+.mech p b{color:var(--txt);font-weight:600}
+@media(max-width:860px){.mech{grid-template-columns:1fr}
+  .mech>div{border-right:0;border-bottom:1px solid var(--line)}
+  .mech>div:last-child{border-bottom:0}}
+.fn{margin:16px 0 0;color:#5c6879;font-size:11.5px;line-height:1.65;max-width:92ch}
+.fn a{color:#7c8798;text-decoration:underline;text-underline-offset:2px}
+.fn a:hover{color:var(--green)}
+
 /* metrics */
 .metrics{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);
   border-radius:var(--rad);overflow:hidden;background:var(--panel);margin-top:26px}
-.metrics div{padding:26px 24px;border-right:1px solid var(--line)}
-.metrics div:last-child{border-right:0}
+.metrics > div{padding:26px 24px;border-right:1px solid var(--line)}
+.metrics > div:last-child{border-right:0}
 .metrics .k{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
 .metrics .v{font-family:var(--disp);font-weight:900;font-size:clamp(23px,4.6vw,31px);line-height:1.15;letter-spacing:-.03em;margin-top:8px}
 .metrics .v.g{color:var(--green)}
 @media(max-width:860px){.metrics{grid-template-columns:1fr 1fr}
-  .metrics div:nth-child(2n){border-right:0}
-  .metrics div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+  .metrics > div:nth-child(2n){border-right:0}
+  .metrics > div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
 @media(max-width:560px){.metrics{grid-template-columns:1fr}
-  .metrics div{border-right:0;border-bottom:1px solid var(--line)}
-  .metrics div:last-child{border-bottom:0}}
+  .metrics > div{border-right:0;border-bottom:1px solid var(--line)}
+  .metrics > div:last-child{border-bottom:0}}
 
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -316,7 +332,7 @@ footer{border-top:1px solid var(--line);background:#070a10;padding:56px 0 34px;p
     </a>
     <nav>
       <a href="#log">The Tape</a>
-      <a href="#pair">Pair</a>
+      <a href="#pair">The Pair</a>
       <a href="#buy">Buy</a>
       <a href="#ansem">Ansem</a>
       <a href="#faq">FAQ</a>
@@ -334,9 +350,9 @@ footer{border-top:1px solid var(--line);background:#070a10;padding:56px 0 34px;p
 <div id="top"></div>
 <section class="wrap hero">
   <div>
-    <div class="eyebrow"><span class="dot"></span><span class="mono-label" style="color:#b9c4d3">Robinhood Chain · Not A Squeeze · Just The Truck</span></div>
+    <div class="eyebrow"><span class="dot"></span><span class="mono-label" style="color:#b9c4d3">Robinhood Chain · Quote Asset: RIVN Stock Token</span></div>
     <h1>WSB NEVER<br>TOOK <span class="strike">THE TRUCK</span>.<br><span class="l2">SO WE DID.</span></h1>
-    <p class="lede">Beat earnings, raise guidance — stock dumps anyway. A $20 rip diluted away at $15.50. IPO'd at $179, parked in the teens. <b>Trucks everywhere, chart nowhere.</b> Ansem tried to CTO it and sold the bottom; the tape faded him too. <b>$RIVN</b> is what's left of that trade, on-chain, held by the people who never got the exit.</p>
+    <p class="lede">Beat earnings, raise guidance — stock dumps anyway. A $20 rip diluted away at $15.50. IPO'd at $179, parked in the teens. <b>Trucks everywhere, chart nowhere.</b> Ansem tried to CTO it and sold the bottom; the tape faded him too. <b>$RIVN</b> is what's left of that trade — an on-chain token quoted in the tokenized stock itself, held by the people who never got the exit.</p>
 
     <div class="ca">
       <div class="col">
@@ -443,8 +459,8 @@ footer{border-top:1px solid var(--line);background:#070a10;padding:56px 0 34px;p
 <section class="sec wrap" id="pair" style="padding-top:0">
   <div class="sec-head rv">
     <span class="n">02</span>
-    <h2>ONE TICKER,<br>TWO VENUES</h2>
-    <p>We didn't pick a clever name. We took the ticker. One $RIVN gets punished on a brokerage, the other runs on a chain.</p>
+    <h2>PAIRED TO THE<br>STOCK TOKEN</h2>
+    <p>On Robinhood Chain "paired with $RIVN" isn't a slogan. The stock token is literally the other side of the pool.</p>
   </div>
 
   <div class="pair rv">
@@ -453,20 +469,21 @@ footer{border-top:1px solid var(--line);background:#070a10;padding:56px 0 34px;p
         <span class="glyph" style="border:1px solid rgba(207,242,21,.45);overflow:hidden;padding:0">
           <img src="logo.jpg" alt="" width="44" height="44" style="width:100%;height:100%;object-fit:cover;display:block">
         </span>
-        <div><h4>$RIVN</h4><div class="sub">Robinhood Chain · The Coin</div></div>
+        <div><h4>$RIVN</h4><div class="sub">The Coin · Robinhood Chain</div></div>
       </div>
-      <p>The community side of the trade. Minted by the people who were told to CTO the trucks, watched the caller leave, and did it anyway — ticker included.</p>
+      <p>The community side of the pool. Minted by the people who were told to CTO the trucks, watched the caller leave, and did it anyway — ticker included.</p>
       <dl>
-        <div><dt>Network</dt><dd>Robinhood Chain</dd></div>
+        <div><dt>Supply</dt><dd>1,000,000,000</dd></div>
+        <div><dt>Quote asset</dt><dd>RIVN Stock Token</dd></div>
         <div><dt>Ownership</dt><dd>Renounced</dd></div>
-        <div><dt>Liquidity</dt><dd>Burned</dd></div>
+        <div><dt>Team allocation</dt><dd>0%</dd></div>
         <div><dt>Tax</dt><dd>0 / 0</dd></div>
       </dl>
     </div>
 
     <div class="link" aria-hidden="true">
       <span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg>
       </span>
     </div>
 
@@ -478,24 +495,44 @@ footer{border-top:1px solid var(--line);background:#070a10;padding:56px 0 34px;p
             <path d="M9.8 17H6.2M2 15v2h1.3"/><circle cx="5" cy="17.6" r="1.6"/><circle cx="17.6" cy="17.6" r="1.6"/>
           </svg>
         </span>
-        <div><h4>$RIVN</h4><div class="sub">Public Market · The Stock</div></div>
+        <div><h4>RIVN</h4><div class="sub">Robinhood Stock Token</div></div>
       </div>
-      <p>IPO'd at $179, parked in the teens. Beats the quarter and dumps regardless. We don't issue it and we don't control it — we just never stopped watching it get punished.</p>
+      <p>An ERC-20 that tracks the economics of the listed stock — the one that IPO'd at $179 and parked in the teens. Exposure, not shares. We don't issue it and we don't control it.</p>
       <dl>
-        <div><dt>Venue</dt><dd>Traditional Market</dd></div>
-        <div><dt>Running Joke</dt><dd>Good news, red candle</dd></div>
-        <div><dt>Issued by us</dt><dd>No</dd></div>
-        <div><dt>Same asset</dt><dd>Not remotely</dd></div>
+        <div><dt>Format</dt><dd>ERC-20</dd></div>
+        <div><dt>Gives you</dt><dd>Economic exposure</dd></div>
+        <div><dt>Share ownership</dt><dd>None</dd></div>
+        <div><dt>Minted by</dt><dd>Authorised party only</dd></div>
+        <div><dt>Trades</dt><dd>24 / 7, on-chain</dd></div>
       </dl>
     </div>
   </div>
 
-  <div class="metrics rv">
-    <div><div class="k">Supply</div><div class="v">1,000,000,000</div></div>
-    <div><div class="k">Team Allocation</div><div class="v g">0%</div></div>
-    <div><div class="k">Buy / Sell Tax</div><div class="v g">0 / 0</div></div>
-    <div><div class="k">Squeeze Promised</div><div class="v">NONE</div></div>
+  <div class="mech rv">
+    <div>
+      <span class="mi">01 · THE POOL</span>
+      <h4>The stock is the currency</h4>
+      <p>Stock-paired launchpads let a token go live with a Robinhood Stock Token as its quote asset instead of ETH or a stablecoin. So the market isn't $RIVN/ETH — it's <b>$RIVN against tokenized RIVN</b>. Every buy and sell in this coin is a trade in the stock token too.</p>
+    </div>
+    <div>
+      <span class="mi">02 · THE FLOAT</span>
+      <h4>Buying pulls float into the pool</h4>
+      <p>Stock tokens handed over on a buy stay in the pool as liquidity. Enough of them, and a single memecoin ends up holding a serious chunk of a ticker's on-chain float — <b>BONER got to roughly 53% of the tokenized HIMS supply</b>, leaving thin inventory everywhere else.</p>
+    </div>
+    <div>
+      <span class="mi">03 · THE CEILING</span>
+      <h4>Nobody can mint their way out</h4>
+      <p>Only an authorised participant issues new stock tokens; traders can't. With the exchange shut, on-chain HIMS printed <b>$132.64 against a $28.84 Friday close</b> — about 4.6x — until roughly 4,000 fresh tokens were minted on Monday and it normalised.</p>
+    </div>
   </div>
+
+  <div class="metrics rv">
+    <div><div class="k">Memecoin–stock pair volume</div><div class="v g">$217M</div></div>
+    <div><div class="k">Tokenized stock volume</div><div class="v">$127M</div></div>
+    <div><div class="k">Pairable tickers</div><div class="v">90+</div></div>
+    <div><div class="k">Peak float in one pool</div><div class="v">53%</div></div>
+  </div>
+  <p class="fn rv">Figures are Robinhood Chain ecosystem-wide on 2 September 2026 — daily volumes, not $RIVN's. Robinhood Chain is an Arbitrum Orbit L2 that settles to Ethereum; it went live 1 July 2026 and Robinhood does not control what third parties deploy on it. The 53% and the HIMS prices are the BONER/HIMS episode. None of this moves the listed stock: an on-chain premium is a dislocation on one venue, and it closed once supply was minted. Sources: <a href="https://cryptoslate.com/robinhood-put-stocks-on-a-permissionless-blockchain-memecoin-traders-are-stress-testing-what-happens-next/" target="_blank" rel="noopener">CryptoSlate</a>, <a href="https://crypto.news/robinhood-chain-rwa-volume-hits-390m-as-memecoin-stock-pairs-surge/" target="_blank" rel="noopener">crypto.news</a>.</p>
 </section>
 
 <!-- ================= BUY ================= -->
@@ -520,7 +557,7 @@ footer{border-top:1px solid var(--line);background:#070a10;padding:56px 0 34px;p
         <path d="M4 17V9M20 17V9M4 9h16"/><path d="M2 19h20"/><path d="M8 9V7l4-3 4 3v2"/><path d="M12 12v4"/>
       </svg>
       <h4>Fund the chain</h4>
-      <p>Bridge or deposit onto Robinhood Chain so you have gas. Small first, always. The truck isn't going anywhere.</p>
+      <p>Robinhood Chain is an Ethereum L2 and pays gas in ETH, so bridge or deposit before you trade. Small first, always. The truck isn't going anywhere.</p>
     </div>
     <div class="step">
       <span class="num">03</span>
@@ -528,7 +565,7 @@ footer{border-top:1px solid var(--line);background:#070a10;padding:56px 0 34px;p
         <path d="M4 8h13l-3-3M20 16H7l3 3"/>
       </svg>
       <h4>Swap for $RIVN</h4>
-      <p>Paste the contract address above — verify it character by character — swap, and you're in the fleet. Then do the one thing Ansem didn't.</p>
+      <p>The pool quotes in RIVN stock tokens, so that's what a buy routes through. Paste the contract address above, verify it character by character, swap — then do the one thing Ansem didn't.</p>
     </div>
   </div>
 </section>
@@ -581,16 +618,22 @@ footer{border-top:1px solid var(--line);background:#070a10;padding:56px 0 34px;p
       <div class="a"><p>A community memecoin on Robinhood Chain that carries the same ticker as the stock it's named after. It's built on one running joke — good news, red candle — has no utility beyond being the truck, and doesn't pretend otherwise.</p></div>
     </div>
     <div class="q">
+      <button type="button">Does buying this move the real stock?
+        <svg class="pm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="a"><p>No. A buy here routes through tokenized RIVN and parks it in the pool, which affects the on-chain float and nothing else. The listed price is still set on the exchange by people who have never heard of this. If you ever see the on-chain token trading miles above the closing price, that's thin weekend inventory, not a discovery — HIMS did exactly that at roughly 4.6x and gave it all back once new tokens were minted.</p></div>
+    </div>
+    <div class="q">
       <button type="button">Why the same ticker as the stock?
         <svg class="pm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
       </button>
-      <div class="a"><p>Because that's the joke. The coin doesn't trade the stock, track the stock, or settle against it — it just refuses to let the ticker belong only to the venue that keeps burying it. Two different things named $RIVN: one on a public market, one on Robinhood Chain. Check which venue you're on before you buy anything.</p></div>
+      <div class="a"><p>Because that's the joke — and on a stock-paired chain it's a joke with a straight face: the pool reads $RIVN against RIVN. The coin doesn't track the stock or settle against it; it's quoted in the stock token the way another coin would be quoted in ETH. Two different things wearing one ticker: a listed stock, and a memecoin on Robinhood Chain. Check which venue you're on before you buy anything.</p></div>
     </div>
     <div class="q">
       <button type="button">Is this a WSB squeeze play?
         <svg class="pm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
       </button>
-      <div class="a"><p>No, and anyone selling you that is lying. WSB never took the truck. There is no coordinated squeeze, no gamma setup, no institution about to get caught. The premise here is the opposite — the stock stayed cheap through good quarters, everyone stopped caring, and we showed up anyway.</p></div>
+      <div class="a"><p>No, and anyone selling you that is lying. WSB never took the truck. Stock-paired pools do lock up tokenized float on-chain, and when the exchange is shut that can print silly on-chain prices — but that's a dislocation on one venue, not pressure on the listed stock, and it closes as soon as the authorised party mints more supply. The premise here is the opposite of a squeeze: the stock stayed cheap through good quarters, everyone stopped caring, and we showed up anyway.</p></div>
     </div>
     <div class="q">
       <button type="button">Why the tape jokes about earnings and dilution?
@@ -632,7 +675,7 @@ footer{border-top:1px solid var(--line);background:#070a10;padding:56px 0 34px;p
       </div>
       <div class="f-links">
         <a href="#log">The Tape</a>
-        <a href="#pair">Pair</a>
+        <a href="#pair">The Pair</a>
         <a href="#buy">Buy</a>
         <a href="#ansem">Ansem</a>
         <a href="#faq">FAQ</a>
@@ -640,7 +683,7 @@ footer{border-top:1px solid var(--line);background:#070a10;padding:56px 0 34px;p
       </div>
     </div>
     <div class="disc">
-      <p>$RIVN on Robinhood Chain is a meme token. It is not the publicly traded stock of the same ticker, not an investment product, not a security, and not financial advice. Buying it gives you no claim on any company or share. No affiliation with Rivian Automotive, Inc. or Robinhood Markets, Inc. Nothing on this page is a promise of return. Always verify the contract address yourself before transacting.</p>
+      <p>$RIVN on Robinhood Chain is a meme token. It is not the publicly traded stock of the same ticker, not an investment product, not a security, and not financial advice. Buying it gives you no claim on any company or share, and Robinhood Stock Tokens are not shares either — they are ERC-20s giving economic exposure, issued and redeemed by an authorised party, not by us. No affiliation with Rivian Automotive, Inc. or Robinhood Markets, Inc. Nothing on this page is a promise of return. Always verify the contract address yourself before transacting.</p>
       <p>© <span id="yr"></span> $RIVN CTO</p>
     </div>
   </div>

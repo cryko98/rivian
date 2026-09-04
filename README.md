@@ -1,6 +1,8 @@
 # RIVIAN — $RIVN on Robinhood Chain
 
-Community takeover landing page for **$RIVN** on Robinhood Chain — the memecoin that took the stock's ticker. Name: Rivian. Ticker: $RIVN.
+Community takeover landing page for **$RIVN** on Robinhood Chain — a stock-paired memecoin quoted in the tokenized RIVN stock token. Name: Rivian. Ticker: $RIVN.
+
+Section 02 describes the real stock-pairing mechanic on Robinhood Chain (stock token as quote asset, float locked in the pool, mint-only-by-authorised-party ceiling). The figures and the BONER/HIMS episode cited there are sourced and dated in the footnote — update or drop them if they go stale.
 
 ## Stack
 
