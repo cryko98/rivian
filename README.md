@@ -26,8 +26,7 @@ read from this one place — nothing else needs to change.
 | File | Purpose |
 | --- | --- |
 | `index.html` | The whole site |
-| `favicon.svg` | Browser tab icon |
-| `logo.jpg` | Hero image + Open Graph / social preview |
+| `logo.jpg` | Logo, favicon, hero image and social preview |
 
 ## Deploy
 
